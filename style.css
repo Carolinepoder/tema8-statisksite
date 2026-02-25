@@ -206,3 +206,17 @@ main h2 {
   font-weight: bold;
   color: black;
 }
+
+@media (max-width: 700px) {
+  .product-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .product-page {
+    padding: 20px;
+  }
+
+  .buy-box {
+    margin-top: 30px;
+  }
+}
