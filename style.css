@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+  padding: 2rem;
+}
+
+.logo a {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.menu a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+/* index */
+main {
+  padding: 2rem;
+  gap: 2rem;
+}
+
+h1,
+h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card {
+  background-color: #7c7c7c;
+  color: white;
+  padding: 40px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+/* Product list */
+
+main h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+main h2 {
+  grid-column: 1 / -1;
+}
+
+.products {
+  text-decoration: none;
+  color: black;
+}
+
+.item {
+  background: white;
+  padding: 15px;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.item img {
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.item h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.item p:first-of-type {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.item p:last-of-type {
+  font-weight: bold;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+}
+
+/* product  */
+
+.product-page {
+  padding: 60px 80px;
+}
+
+.product-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.product-image img {
+  width: 100%;
+  display: block;
+}
+
+.product-info h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.product-info p {
+  margin-bottom: 15px;
+}
+
+.brand {
+  font-size: 40px;
+  margin-top: 40px;
+}
+
+.buy-box {
+  background: #e5e5e5;
+  padding: 40px;
+}
+
+.buy-box h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.buy-box .category {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.buy-box button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buy-box button:hover {
+  background: black;
+  color: white;
+}
+
+/* udsolgt vare */
+
+.item {
+  position: relative;
+}
+
+.sold-out img {
+  opacity: 0.4;
+}
+
+.soldout {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #777;
+  color: white;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+/* vare til salg */
+
+.sale {
+  bottom: 10px;
+  right: 10px;
+  background: rgb(255, 0, 0);
+  color: white;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.new-price {
+  font-weight: bold;
+  color: black;
+}
