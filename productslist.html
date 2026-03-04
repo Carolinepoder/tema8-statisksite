@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="productlist.js" defer></script>
   </head>
 
   <body>
@@ -15,7 +16,7 @@
       <nav class="menu">
         <a href="index.html">Women</a>
         <a href="index.html">Men</a>
-        <a href="index.html">Kids</a>
+        <a href="index.html">All</a>
       </nav>
     </header>
 
@@ -34,25 +35,29 @@
         </article>
       </a>
 
-      <a href="product.html" class="products sale">
+      <a href="product.html" class="products sale sold-out">
         <article class="item">
           <!-- vare til salg -->
           <span class="sale">-30%</span>
+          <span class="soldout">Sold Out</span>
           <img
             src="https://kea-alt-del.dk/t7/images/webp/640/1525.webp"
             alt="product img"
           />
           <h3>Black Puma Backpack</h3>
           <p>Puma</p>
-          <p class="old-price">DKK 499</p>
-          <p class="new-price">DKK 349</p>
+          <div class="udsalg">
+            <p class="old-price">DKK 499</p>
+            <p class="new-price">DKK 349</p>
+          </div>
         </article>
       </a>
 
-      <a href="product.html" class="products sold-out">
+      <a href="product.html" class="products sale sold-out">
         <article class="item">
-          <!-- udsolgt vare -->
+          <!-- udsolgt udsalg vare -->
           <span class="soldout">Sold Out</span>
+          <span class="sale">-30%</span>
           <img
             src="https://kea-alt-del.dk/t7/images/webp/640/1164.webp"
             alt="product img"

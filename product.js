@@ -1,33 +1,23 @@
-<!doctype html>
-<html lang="da">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+const productId = new URLSearchParams(window.location.search).get("id");
+const productcontainer = document.querySelector("#productcontainer");
+const endpoint = `https://kea-alt-del.dk/t7/api/products/${productId}`;
 
-  <body>
-    <header>
-      <a href="index.html">
-        <h1>FashionRUs</h1>
-      </a>
-      <nav class="menu">
-        <a href="index.html">Women</a>
-        <a href="index.html">Men</a>
-        <a href="index.html">Kids</a>
-      </nav>
-    </header>
+function getData() {
+  fetch(endpoint)
+    .then((response) => response.json())
+    .then(renderProduct);
+}
 
-    <main class="product-page">
+function renderProduct(data) {
+  productcontainer.innerHTML = `
       <div class="menu">
-        <a href="productslist.html">Back</a>
+        <a href="productslist.html?category=${data.category}">Back</a>
       </div>
 
       <section class="product-layout sale">
         <div class="product-image">
           <img
-            src="https://kea-alt-del.dk/t7/images/webp/640/1525.webp"
+            src="https://kea-alt-del.dk/t7/images/webp/640/${data.id}.webp"
             alt="product img"
           />
         </div>
@@ -50,6 +40,9 @@
           <button>Add to basket</button>
         </div>
       </section>
-    </main>
-  </body>
-</html>
+    
+    
+    
+    
+    `;
+}
