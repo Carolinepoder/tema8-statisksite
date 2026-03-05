@@ -1,48 +1,57 @@
-const productId = new URLSearchParams(window.location.search).get("id");
-const productcontainer = document.querySelector("#productcontainer");
-const endpoint = `https://kea-alt-del.dk/t7/api/products/${productId}`;
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
 
-function getData() {
+const endpoint = `https://kea-alt-del.dk/t7/api/products/${id}`; // Brug id
+const productContainer = document.querySelector("#productcontainer");
+
+function getProduct() {
+  console.log("data til id", id);
+
   fetch(endpoint)
-    .then((response) => response.json())
-    .then(renderProduct);
+    .then((res) => res.json())
+    .then((product) => {
+      console.log("Data", product);
+      showProduct(product);
+    })
+    .catch((err) => console.error("fejl ved hentning af data", err));
 }
 
-function renderProduct(data) {
-  productcontainer.innerHTML = `
+function showProduct(product) {
+  productContainer.innerHTML = `
       <div class="menu">
-        <a href="productslist.html?category=${data.category}">Back</a>
+        <a href="productslist.html?category=${product.category}">Back</a>
       </div>
 
-      <section class="product-layout sale">
+      <section class="product-layout ${product.category ? "sale" : ""}>
         <div class="product-image">
           <img
-            src="https://kea-alt-del.dk/t7/images/webp/640/${data.id}.webp"
-            alt="product img"
+            src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp"
+            alt="${product.productdisplayname}"
           />
         </div>
 
         <div class="product-info">
           <h2>Product Information</h2>
 
-          <p><strong>Model name</strong><br />Puma Backpack</p>
-          <p><strong>Old price</strong><br class="old-price" />499 DKK</p>
-          <p><strong>New price</strong><br class="new-price" />349 DKK</p>
-          <p><strong>Stock</strong><br />7</p>
+          <p><strong>Model name</strong><br />${product.productdisplayname}</p>
+          <p><strong>price</strong><br class="price" />${product.price}</p>
+          <p><strong>Stock</strong><br />${product.soldout ? "udsolgt" : "på lager"}</p>
 
-          <h3 class="brand">Puma</h3>
+          <h3 class="brand">${product.brandname}</h3>
         </div>
 
         <div class="buy-box sale">
-          <h2>Puma Backpack</h2>
-          <p class="category">Puma | Bags</p>
+          <h2>${product.productdisplayname}</h2>
+          <p class="category">${product.brandname}| ${product.articletype}</p>
 
           <button>Add to basket</button>
         </div>
       </section>
-    
-    
-    
-    
     `;
+}
+
+if (id) {
+  getProduct();
+} else {
+  productContainer.innerHTML = "<h2>Intet produkt-ID fundet i URL</h2>";
 }

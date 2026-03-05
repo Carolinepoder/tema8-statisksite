@@ -11,6 +11,13 @@ header {
   align-items: center;
   margin-bottom: 60px;
   padding: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 40px;
+  font-weight: 700;
 }
 
 .logo a {
@@ -19,10 +26,15 @@ header {
 }
 
 .menu a {
-  margin-left: 25px;
+  display: inline-block;
+  margin-bottom: 15px;
   text-decoration: none;
+  font-weight: bold;
   color: black;
-  font-size: 16px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
 }
 
 /* index */
@@ -31,10 +43,10 @@ main {
   gap: 2rem;
 }
 
-h1,
 h2 {
   font-size: 40px;
   margin-bottom: 30px;
+  text-decoration: none;
 }
 
 .grid {
@@ -46,9 +58,23 @@ h2 {
 .card {
   background-color: #7c7c7c;
   color: white;
-  padding: 40px;
-  border-radius: 8px;
-  font-size: 18px;
+  padding: 50px;
+  border-radius: 12px;
+  font-size: 20px;
+  text-align: center;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.card a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background-color: #5a5a5a;
 }
 
 /* Product list */
@@ -105,9 +131,33 @@ main h2 {
   transform: translateY(-5px);
 }
 
+#filter button,
+#sorter button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#filter button:hover,
+#sorter button:hover {
+  background: #707070;
+  color: white;
+  border-color: #3f3f3f;
+}
+
+#filter,
+#sorter {
+  display: flex;
+  gap: 10px;
+}
+
 /* product  */
 
-.product-page {
+.productcontainer {
   padding: 60px 80px;
 }
 
@@ -138,8 +188,9 @@ main h2 {
 }
 
 .buy-box {
-  background: #e5e5e5;
-  padding: 40px;
+  background: #f3f3f3;
+  padding: 35px;
+  border-radius: 8px;
 }
 
 .buy-box h2 {
@@ -156,14 +207,15 @@ main h2 {
   width: 100%;
   padding: 15px;
   border: none;
-  background: white;
+  background: black;
+  color: white;
   font-size: 16px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .buy-box button:hover {
-  background: black;
-  color: white;
+  background: #707070;
 }
 
 /* udsolgt vare */
@@ -180,31 +232,42 @@ main h2 {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: #777;
+  background: black;
   color: white;
   padding: 6px 10px;
-  font-size: 14px;
+  font-size: 12px;
+  border-radius: 4px;
 }
 
 /* vare til salg */
 
-.sale {
-  bottom: 10px;
+.sale::after {
+  content: "SALE";
+  position: absolute;
+  top: 10px;
   right: 10px;
-  background: rgb(255, 0, 0);
+  background: red;
   color: white;
+  font-size: 12px;
   padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.price {
+  color: #5d5d5d;
   font-size: 14px;
 }
 
 .old-price {
   text-decoration: line-through;
-  color: #777;
+  color: #000000;
+  font-size: 14px;
 }
 
 .new-price {
   font-weight: bold;
-  color: black;
+  color: red;
+  font-size: 16px;
 }
 
 @media (max-width: 700px) {
